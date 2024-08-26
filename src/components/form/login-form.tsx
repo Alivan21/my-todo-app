@@ -55,7 +55,7 @@ export default function LoginForm() {
         <Input.Password placeholder="Password" />
       </Form.Item>
       <Form.Item>
-        <Button block disabled={submitting} htmlType="submit" type="primary">
+        <Button block htmlType="submit" loading={submitting} type="primary">
           Login
         </Button>
       </Form.Item>

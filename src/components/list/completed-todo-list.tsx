@@ -12,7 +12,7 @@ export default function CompletedTodo() {
           { id: 2, title: "Task 2" },
           { id: 3, title: "Task 3" },
         ]}
-        renderItem={() => <List.Item>Task 1</List.Item>}
+        renderItem={item => <List.Item>{item.title}</List.Item>}
       />
     </div>
   );

@@ -13,10 +13,10 @@ export default function TodoList() {
           { id: 2, title: "Task 2" },
           { id: 3, title: "Task 3" },
         ]}
-        renderItem={() => (
+        renderItem={item => (
           <List.Item>
             <div className="flex w-full items-center justify-between">
-              <p>Task 1</p>
+              <p>{item.title}</p>
               <div>
                 <Button type="primary">
                   <CheckOutlined />
