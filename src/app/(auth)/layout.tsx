@@ -26,7 +26,7 @@ export default function AuthLayout({
           </Col>
           <Col lg={12} md={24} sm={16} xl={12} xs={24}>
             <Row align="middle" justify="center">
-              <Col className="px-8" span={24}>
+              <Col className="px-12" span={24}>
                 {children}
               </Col>
             </Row>
