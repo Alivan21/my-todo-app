@@ -45,7 +45,7 @@ export async function updateSession(request: NextRequest) {
   // Redirect to /todo if authenticated and trying to access login page
   if (user && request.nextUrl.pathname === "/") {
     const url = request.nextUrl.clone();
-    url.pathname = "/todo";
+    url.pathname = "/todos";
     return NextResponse.redirect(url);
   }
 

@@ -14,7 +14,7 @@ export default async function TodoPage() {
   }
 
   return (
-    <div className="mx-auto min-h-screen max-w-5xl space-y-8">
+    <div className="mx-auto min-h-screen max-w-md space-y-8 px-2.5 md:max-w-2xl md:px-0">
       <Navbar />
       <main className="space-y-8">
         <TodoForm />
