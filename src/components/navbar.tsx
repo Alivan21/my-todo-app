@@ -31,7 +31,7 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="flex items-center justify-between">
+    <header className="flex items-center justify-between rounded-md border-b p-4 shadow-md">
       <h1 className="flex-1 text-center text-2xl font-bold uppercase">My ToDo App</h1>
       <Dropdown arrow menu={{ items }} placement="bottom">
         <div className="cursor-pointer">
