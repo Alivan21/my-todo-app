@@ -11,7 +11,7 @@
   "root": true,
   "ignorePatterns": ["src/components/ui/**"],
   "rules": {
-    "@typescript-eslint/no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": "warn",
     "react/function-component-definition": ["warn", { "namedComponents": "function-declaration" }],
     "react/jsx-no-leaked-render": ["error", { "validStrategies": ["ternary"] }],
     "react/jsx-max-depth": ["error", { "max": 6 }],
