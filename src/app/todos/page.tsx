@@ -3,7 +3,9 @@ import TodoForm from "@/components/form/todo-form";
 import CompletedTodo from "@/components/list/completed-todo-list";
 import TodoList from "@/components/list/todo-list";
 import Navbar from "@/components/navbar";
+import { getCompletedTodos, getTodos } from "@/services/todo";
 import { createClient } from "@/utils/supabase/server";
+import { dehydrate, HydrationBoundary, QueryClient } from "@tanstack/react-query";
 
 export default async function TodoPage() {
   const supabase = createClient();
@@ -18,9 +20,39 @@ export default async function TodoPage() {
       <Navbar />
       <main className="space-y-8">
         <TodoForm />
-        <TodoList />
-        <CompletedTodo />
+        <TodoListSSR />
+        <CompletedTodoSSR />
       </main>
     </div>
+  );
+}
+
+async function TodoListSSR() {
+  const queryClient = new QueryClient();
+
+  await queryClient.prefetchQuery({
+    queryKey: ["todos"],
+    queryFn: getTodos,
+  });
+
+  return (
+    <HydrationBoundary state={dehydrate(queryClient)}>
+      <TodoList />
+    </HydrationBoundary>
+  );
+}
+
+async function CompletedTodoSSR() {
+  const queryClient = new QueryClient();
+
+  await queryClient.prefetchQuery({
+    queryKey: ["completed-todos"],
+    queryFn: getCompletedTodos,
+  });
+
+  return (
+    <HydrationBoundary state={dehydrate(queryClient)}>
+      <CompletedTodo />
+    </HydrationBoundary>
   );
 }

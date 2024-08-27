@@ -10,7 +10,6 @@ export default function LoginForm() {
 
   const onFinish = async (values: LoginRequest) => {
     try {
-      console.log(values);
       setSubmitting(true);
       const formData = new FormData();
       formData.set("email", values.email);
